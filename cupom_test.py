@@ -1,5 +1,5 @@
 # coding: utf-8
-
+ 
 import cupom
 import pytest
 
@@ -83,7 +83,7 @@ def test_loja_completa():
 
 def test_nome_vazio():
     verifica_campo_obrigatorio_param(
-        "O campo logradouro do endereço é obrigatório",
+        "O campo nome da loja é obrigatório",
         None,
         LOGRADOURO,
         NUMERO,
@@ -339,22 +339,27 @@ def test_inscricao_estadual_vazia():
 def test_exercicio2_customizado():
 
     # Defina seus próprios valores para as variáveis a seguir
-    nome_loja = ""
-    logradouro = ""
-    numero = 0
-    complemento = ""
-    bairro = ""
-    municipio = ""
-    estado = ""
-    cep = ""
-    telefone = ""
-    observacao = ""
-    cnpj = ""
-    inscricao_estadual = ""
+    nome_loja = "Jr Tech"
+    logradouro = "Rua Geraldo Correia de Melo"
+    numero = 100
+    complemento = "Casa"
+    bairro = "Centro"
+    municipio = "Araçagi"
+    estado = "PB"
+    cep = "58270-000"
+    telefone = "(83) 98111-2697"
+    observacao = "Matriz"
+    cnpj = "66.651.293/0001-85"
+    inscricao_estadual = "222.333.444.555"
 
     # E atualize o texto esperado abaixo
     assert (
         cupom.dados_loja_param(nome_loja, logradouro, numero, complemento, bairro, municipio, estado, cep, telefone, observacao, cnpj, inscricao_estadual)
-        == """
-"""
+        == """Jr Tech
+Rua Geraldo Correia de Melo, 100 Casa
+Centro - Araçagi - PB
+CEP:58270-000 Tel (83) 98111-2697
+Matriz
+CNPJ: 66.651.293/0001-85
+IE: 222.333.444.555"""
     )
